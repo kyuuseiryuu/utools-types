@@ -1,0 +1,11 @@
+{
+  "name": "utools-types",
+  "version": "1.0.0",
+  "description": "uTools types",
+  "types": "index.d.ts",
+  "scripts": {
+  },
+  "author": "kyuuseiryuu",
+  "license": "ISC",
+  "dependencies": {}
+}
