@@ -1,10 +1,9 @@
 {
-  "name": "utools-types",
+  "name": "@types/utools",
   "version": "1.0.0",
   "description": "uTools types",
   "types": "index.d.ts",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "kyuuseiryuu",
   "license": "MIT",
   "dependencies": {}
