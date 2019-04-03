@@ -32,7 +32,7 @@ interface CmdImg extends CmdBase {
 
 interface CmdFiles extends CmdBase{
   type: 'files';
-  fileType: 'file';
+  fileType?: 'file' | 'directory';
   minNum: number;
   maxNum: number;
 }
