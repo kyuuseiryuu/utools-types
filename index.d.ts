@@ -19,7 +19,33 @@ interface DbGetDoc {
 interface FeatureConf {
   code: string;
   explain: string;
-  cmds: string[];
+  cmds: CmdImg[] | CmdFiles[] |CmdRegex[] | CmdOver[] | string[];
+}
+
+interface CmdBase {
+  label: string;
+}
+
+interface CmdImg extends CmdBase {
+  type: 'img';
+}
+
+interface CmdFiles extends CmdBase{
+  type: 'files';
+  fileType: 'file';
+  minNum: number;
+  maxNum: number;
+}
+
+interface CmdRegex extends CmdBase {
+  type: 'regex';
+  match: string;
+  minLength: number;
+  maxLength: number;
+}
+
+interface CmdOver extends CmdBase {
+  type: 'over';
 }
 
 declare interface UTools {
@@ -134,10 +160,10 @@ declare interface UTools {
 
   /**
    * 执行该方法将会修改插件窗口的高度。
-   * @param {100} height
+   * @param {number} height
    * @return {boolean}
    */
-  setExpendHeight: (height: 100) => boolean;
+  setExpendHeight: (height: number) => boolean;
 
   /**
    * 设置子输入框，进入插件后，原本uTools的搜索条主输入框将会变成子输入框，设置完子输入框搜索条子输入框可以为插件所使用。
@@ -183,15 +209,10 @@ declare interface UTools {
 
   /**
    * 为本插件动态新增某个功能。
+   * @param {FeatureConf} featureConf
    * @return {boolean}
    */
-  setFeature: (
-    featureConf: {
-      code: string;
-      explain: string;
-      cmds: string[];
-    }
-  ) => boolean;
+  setFeature: (featureConf: FeatureConf) => boolean;
 
   /**
    * 动态删除本插件的某个功能。
