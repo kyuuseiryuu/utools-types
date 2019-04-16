@@ -220,6 +220,14 @@ declare interface UTools {
    * @return {boolean}
    */
   removeFeature: (featureCode: string) => boolean;
+
+
+  /**
+   * 跳转到某个插件
+   * @param {string} cmdText 激活这个插件的指令
+   * @param payloadCmd 这个指令将收到的参数
+   */
+  redirect: (cmdText: string, payloadCmd: any) => void;
 }
 
 declare const utools: UTools;
